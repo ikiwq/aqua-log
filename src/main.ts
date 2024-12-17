@@ -1,4 +1,19 @@
 import { Camera, StaticImage, MovingImage, Sprite } from "./classes";
+import {setUUIDIfNotExists} from "./uuid";
+
+const DEVICE_UUID = setUUIDIfNotExists();
+const REQUEST_URI = `https://aqua-log-api.ikiwq.it/api/v1/visits/${DEVICE_UUID}`;
+
+type VisitResponse = {
+  device_id: string;
+  visits_count: number;
+}
+
+let visits: number | null = null;
+
+await fetch(REQUEST_URI, {method: "POST"}).then(async res => {
+  visits = (await res.json() as unknown as VisitResponse).visits_count;
+})
 
 const canvas: HTMLCanvasElement = document.getElementById(
   "animationCanvas"
@@ -135,17 +150,29 @@ function animate() {
   fountain.draw(ctx, camera);
   character.draw(ctx, camera);
 
-  ctx.font = '20px "pixellari"';
+  ctx.font = '30px "pixellari"';
   ctx.fillText(
-    "Complimenti coglione,",
+    "Hai visitato questa pagina",
     25,
     50,
     canvas.width
   );
   ctx.fillText(
-    "hai risparmiato 344 etti di minchia",
+    `${visits || "..."} volte.`,
     25,
     75,
+    canvas.width
+  );
+  ctx.fillText(
+    `Hai risparmiato ben`,
+    25,
+    110,
+    canvas.width
+  );
+  ctx.fillText(
+    `${visits ? Math.floor(visits * 0.15 * 100) / 100 : "..."}Kg di CO2.`,
+    25,
+    135,
     canvas.width
   );
 
