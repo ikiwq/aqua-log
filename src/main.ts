@@ -150,6 +150,7 @@ function animate() {
   fountain.draw(ctx, camera);
   character.draw(ctx, camera);
 
+  ctx.fillStyle = "white";
   ctx.font = '30px "pixellari"';
   ctx.fillText(
     "Hai visitato questa pagina",
@@ -170,6 +171,32 @@ function animate() {
     canvas.width
   );
   ctx.fillText(
+    `${visits ? Math.floor(visits * 0.15 * 100) / 100 : "..."}Kg di CO2.`,
+    25,
+    135,
+    canvas.width
+  );
+
+  ctx.fillStyle = "black";
+  ctx.strokeText(
+    "Hai visitato questa pagina",
+    25,
+    50,
+    canvas.width
+  );
+  ctx.strokeText(
+    `${visits || "..."} volte.`,
+    25,
+    75,
+    canvas.width
+  );
+  ctx.strokeText(
+    `Hai risparmiato ben`,
+    25,
+    110,
+    canvas.width
+  );
+  ctx.strokeText(
     `${visits ? Math.floor(visits * 0.15 * 100) / 100 : "..."}Kg di CO2.`,
     25,
     135,
