@@ -46,7 +46,7 @@ let images: MovingImage[];
 let camera: Camera;
 
 const background = new StaticImage(
-  "/src/assets/bg.png",
+  "bg.png",
   0,
   0,
   canvas.height * 1.77,
@@ -56,14 +56,14 @@ const background = new StaticImage(
 const character_y = (canvas.height * 0.87) - 64;
 
 const fountain = new Sprite(
-  "/src/assets/fountain.png",
+  "fountain.png",
   (canvas.width * 3/5) + 32, character_y + 42,
   52, 52,
   11
 );
 
 const character = new Sprite(
-  "/src/assets/_side walk.png",
+  "_side walk.png",
   0,
   character_y,
   128,
@@ -74,7 +74,7 @@ const character = new Sprite(
 const init = () => {
   rightClouds = Array.from({ length: 10 }, (_, index) => {
     const img = new MovingImage(
-      "/src/assets/cloud.png",
+      "cloud.png",
       -100,
       index * 130 - 100,
       482,
@@ -86,7 +86,7 @@ const init = () => {
 
   leftClouds = Array.from({ length: 10 }, (_, index) => {
     const img = new MovingImage(
-      "/src/assets/cloud.png",
+      "cloud.png",
       canvas.width - 250,
       index * 100 - 100,
       482,
@@ -123,9 +123,9 @@ const init = () => {
   const characterFn = () => {
     character.setSpeed(0.3, 2);
     character.moveTo(canvas.width * 3/5, character_y, () => {
-      character.setImg("/src/assets/_up idle.png");
+      character.setImg("_up idle.png");
       setTimeout(() => {
-        character.setImg("/src/assets/_side walk.png");
+        character.setImg("_side walk.png");
         character.moveTo(canvas.width + 128, character_y, () => {
           character.setPosition(-128, character_y);
           characterFn();
