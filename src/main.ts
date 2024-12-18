@@ -171,11 +171,24 @@ function animate() {
     canvas.width
   );
   ctx.fillText(
-    `150g di CO2 risparmiati.`,
+    `150g CO2 risparmiati.`,
     25,
     135,
     canvas.width
   );
+  ctx.fillText(
+    `Tu hai risparmiato`,
+    25,
+    170,
+    canvas.width
+  );
+  ctx.fillText(
+    `${visits ? Math.floor(visits * 0.15 * 100) / 100 : "..."}Kg CO2.`,
+    25,
+    195,
+    canvas.width
+  );
+
 
   ctx.fillStyle = "black";
   ctx.strokeText(
@@ -197,9 +210,21 @@ function animate() {
     canvas.width
   );
   ctx.strokeText(
-    `150g di CO2 risparmiati.`,
+    `150g CO2 risparmiati.`,
     25,
     135,
+    canvas.width
+  );
+  ctx.strokeText(
+    `Tu hai risparmiato`,
+    25,
+    170,
+    canvas.width
+  );
+  ctx.strokeText(
+    `${visits ? Math.floor(visits * 0.15 * 100) / 100 : "..."}Kg CO2.`,
+    25,
+    195,
     canvas.width
   );
 
