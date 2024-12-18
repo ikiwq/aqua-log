@@ -165,13 +165,13 @@ function animate() {
     canvas.width
   );
   ctx.fillText(
-    `Hai risparmiato ben`,
+    `Ogni 0,5L sono`,
     25,
     110,
     canvas.width
   );
   ctx.fillText(
-    `${visits ? Math.floor(visits * 0.15 * 100) / 100 : "..."}Kg di CO2.`,
+    `150g di CO2 risparmiati.`,
     25,
     135,
     canvas.width
@@ -191,13 +191,13 @@ function animate() {
     canvas.width
   );
   ctx.strokeText(
-    `Hai risparmiato ben`,
+    `Ogni 0,5L sono`,
     25,
     110,
     canvas.width
   );
   ctx.strokeText(
-    `${visits ? Math.floor(visits * 0.15 * 100) / 100 : "..."}Kg di CO2.`,
+    `150g di CO2 risparmiati.`,
     25,
     135,
     canvas.width
